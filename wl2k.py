@@ -93,12 +93,10 @@ class Wl2k:
 
         keys = [node_list[0][1], node_list[0][3], node_list[0][4], node_list[0][5], node_list[0][6]]
         node_list.pop(0)
-        station_info = [{keys[0]: node_list[line][1],
-                         keys[1]: node_list[line][3],
-                         keys[2]: int(node_list[line][4]),
+        station_info = [{keys[0]: node_list[line][1], keys[1]: node_list[line][3], keys[2]: int(node_list[line][4]),
                          keys[3]: int(node_list[line][5]),
                          keys[4]: int(node_list[line][6]),
-                         "Distance": round(gps.Gps.get_geo_distance(user_qth, node_list[line][3]))}
+                         "Distance": round(gps.get_geo_distance(user_qth, node_list[line][3]))}
                         for line in range(len(node_list) - 1)]
         return station_info
 
