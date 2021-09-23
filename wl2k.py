@@ -96,7 +96,7 @@ class Wl2k:
         station_info = [{keys[0]: node_list[line][1], keys[1]: node_list[line][3], keys[2]: int(node_list[line][4]),
                          keys[3]: int(node_list[line][5]),
                          keys[4]: int(node_list[line][6]),
-                         "Distance": round(gps.get_geo_distance(user_qth, node_list[line][3]))}
+                         "Distance": round(gps.Gps.get_geo_distance(user_qth, node_list[line][3]))}
                         for line in range(len(node_list) - 1)]
         return station_info
 
@@ -134,7 +134,7 @@ class Wl2k:
             54: "VARA 2750"
         }
 
-        station_list = self.get_close_nodes(gps.get_current_grid_square())
+        station_list = self.get_close_nodes(gps.Gps.get_current_grid_square())
         close_by_mode = []
         for station in range(len(station_list) - 1):
             if station_list[station]['Mode'] == mode:
